@@ -25,7 +25,7 @@ function App() {
           <Route path="/addProdcuts">
             <AddProduct></AddProduct>
           </Route>
-          <Route path="/update">
+          <Route path="/update/:id">
             <UpdateProduct></UpdateProduct>
           </Route>
         </Switch>
