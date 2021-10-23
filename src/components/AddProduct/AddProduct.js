@@ -17,7 +17,14 @@ const AddProduct = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(newProduct),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("successfuly product added");
+          e.target.reset();
+        }
+      });
 
     e.preventDefault();
   };
@@ -26,7 +33,7 @@ const AddProduct = () => {
       <h3>Please add a product</h3>
       <form onSubmit={handleAddProduct}>
         <input type="text" ref={nameRef} placeholder="product name" />
-        <input type="text" ref={priceRef} placeholder="product price" />
+        <input type="number" ref={priceRef} placeholder="product price" />
         <input type="number" ref={quantityRef} placeholder="product quantity" />
         <input type="submit" value="Add" />
       </form>
